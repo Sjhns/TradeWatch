@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   LineChart,
   BarChart3,
-  PieChart,
   TrendingUp,
   Building2,
   Shield,
@@ -27,6 +26,10 @@ function App() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const goToApp = () => {
+    window.open("https://trade-watch-two.vercel.app", "_blank");
   };
 
   return (
@@ -70,7 +73,7 @@ function App() {
                 Sobre
               </button>
               <a
-                href="https://google.com"
+                href="https://trade-watch-two.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-[1px] rounded-full"
@@ -107,7 +110,7 @@ function App() {
                 Sobre
               </button>
               <a
-                href="https://google.com"
+                href="https://trade-watch-two.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 p-[1px] rounded-full"
@@ -154,11 +157,17 @@ function App() {
                 </span>
               </p>
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
-                <button className="group bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-6 sm:px-8 py-4 rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center space-x-2">
+                <button
+                  onClick={goToApp}
+                  className="group bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-6 sm:px-8 py-4 rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300 flex items-center justify-center space-x-2"
+                >
                   <span>Criar Conta Gratuita</span>
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <button className="group text-gray-400 hover:text-white transition-colors flex items-center justify-center space-x-2">
+                <button
+                  onClick={() => scrollTo("features")}
+                  className="group text-gray-400 hover:text-white transition-colors flex items-center justify-center space-x-2"
+                >
                   <span>Ver Roadmap</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
@@ -337,7 +346,10 @@ function App() {
               Junte-se aos investidores que já estão usando o TradeWatch
               gratuitamente
             </p>
-            <button className="w-full sm:w-auto group bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-8 sm:px-10 py-4 rounded-full text-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300">
+            <button
+              onClick={goToApp}
+              className="w-full sm:w-auto group bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 px-8 sm:px-10 py-4 rounded-full text-lg font-medium hover:shadow-lg hover:shadow-blue-500/25 transition-all duration-300"
+            >
               Criar Conta Gratuita
             </button>
             <p className="mt-4 text-sm text-gray-400">
@@ -364,8 +376,8 @@ function App() {
               </span>
             </div>
             <div className="text-sm text-gray-500">
-              © {new Date().getFullYear()} {' '}
-              TradeWatch. Todos os direitos reservados.
+              © {new Date().getFullYear()} TradeWatch. Todos os direitos
+              reservados.
             </div>
           </div>
         </div>
