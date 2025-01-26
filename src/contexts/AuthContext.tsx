@@ -117,6 +117,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setError(null);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1000));
+      console.log("Reset password for:", email);
     } catch (err) {
       setError(
         "Erro ao enviar email de recuperação. Por favor, tente novamente."
