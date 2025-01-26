@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ArrowLeftIcon, BellIcon, MoonIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
-import Navbar from '../Navbar';
 
 interface SettingsState {
   theme: 'light' | 'dark' | 'system';
@@ -27,9 +26,9 @@ const Settings = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleThemeChange = (theme: SettingsState['theme']) => {
-    setSettings(prev => ({ ...prev, theme }));
-  };
+  // const handleThemeChange = (theme: SettingsState['theme']) => {
+  //   setSettings(prev => ({ ...prev, theme }));
+  // };
 
   const handleNotificationChange = (key: keyof SettingsState['notifications']) => {
     setSettings(prev => ({
