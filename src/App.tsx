@@ -25,7 +25,7 @@ import {
 } from "./utils/local-storage-utils";
 
 function AppContent() {
-  const { signIn, signUp, user } = useAuth();
+  const { signIn, signUp } = useAuth();
   const [assets, setAssets] = useState<Asset[]>([]);
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
