@@ -22,10 +22,10 @@ export interface NotificationPreferences {
 }
 
 export interface ProfileUpdateData {
-  name?: string;
-  phone?: string;
-  occupation?: string;
-  tradingExperience?: TradingExperience;
-  preferredMarkets?: string[];
-  notifications?: Partial<NotificationPreferences>;
+  name: string;
+  phone: string;
+  occupation: string;
+  tradingExperience: TradingExperience;
+  preferredMarkets: string[];
+  notifications: Partial<NotificationPreferences>;
 }
