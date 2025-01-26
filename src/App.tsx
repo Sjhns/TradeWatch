@@ -89,7 +89,6 @@ function AppContent() {
     };
     setAssets([...assets, asset]);
 
-    // Add success alert
     const alert: Alert = {
       id: Date.now().toString(),
       ticker: asset.ticker,
@@ -184,6 +183,8 @@ function AppContent() {
           </ProtectedRoute>
         }
       />
+
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );
 }
