@@ -17,6 +17,9 @@ import {
   X,
 } from "lucide-react";
 
+import Dash from "./dash.avif";
+import Preview from "./preview.png";
+
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -199,7 +202,7 @@ function App() {
             <div className="relative hidden lg:block">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl"></div>
               <img
-                src="../assets/dash.avif"
+                src={Dash}
                 alt="Dashboard Preview"
                 className="relative rounded-3xl shadow-2xl animate-float border border-white/10"
               />
@@ -322,7 +325,7 @@ function App() {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-purple-500/20 to-pink-500/20 rounded-3xl blur-3xl"></div>
               <img
-                src="../assets/Preview.png"
+                src={Preview}
                 alt="Interface da Plataforma"
                 className="relative rounded-3xl shadow-2xl border border-white/10"
               />
