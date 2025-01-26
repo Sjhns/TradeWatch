@@ -1,11 +1,11 @@
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Login from './Login';
-import Register from './Register';
-import ForgotPassword from './ForgotPassword';
-import { LoginCredentials, RegisterCredentials } from '../../types/auth';
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Login from "./Login";
+import Register from "./Register";
+import ForgotPassword from "./ForgotPassword";
+import { LoginCredentials, RegisterCredentials } from "../../types/auth";
 
-type AuthView = 'login' | 'register' | 'forgot-password';
+type AuthView = "login" | "register" | "forgot-password";
 
 interface AuthProps {
   onLogin: (credentials: LoginCredentials) => Promise<void>;
@@ -14,7 +14,7 @@ interface AuthProps {
 }
 
 const Auth = ({ onLogin, onRegister, onForgotPassword }: AuthProps) => {
-  const [view, setView] = useState<AuthView>('login');
+  const [view, setView] = useState<AuthView>("login");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -23,9 +23,9 @@ const Auth = ({ onLogin, onRegister, onForgotPassword }: AuthProps) => {
     setLoading(true);
     try {
       await onLogin(credentials);
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      setError('Failed to login');
+      setError("Failed to login");
     } finally {
       setLoading(false);
     }
@@ -35,9 +35,9 @@ const Auth = ({ onLogin, onRegister, onForgotPassword }: AuthProps) => {
     setLoading(true);
     try {
       await onRegister(credentials);
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      setError('Failed to register');
+      setError("Failed to register");
     } finally {
       setLoading(false);
     }
@@ -47,9 +47,9 @@ const Auth = ({ onLogin, onRegister, onForgotPassword }: AuthProps) => {
     setLoading(true);
     try {
       await onForgotPassword(email);
-      setView('login');
+      setView("login");
     } catch (error) {
-      setError('Failed to send password reset email');
+      setError("Failed to send password reset email");
     } finally {
       setLoading(false);
     }
@@ -57,30 +57,30 @@ const Auth = ({ onLogin, onRegister, onForgotPassword }: AuthProps) => {
 
   const renderView = () => {
     switch (view) {
-      case 'login':
+      case "login":
         return (
           <Login
             onLogin={handleLogin}
-            onSwitchToRegister={() => setView('register')}
-            onForgotPassword={() => setView('forgot-password')}
+            onSwitchToRegister={() => setView("register")}
+            onForgotPassword={() => setView("forgot-password")}
             loading={loading}
             error={error}
           />
         );
-      case 'register':
+      case "register":
         return (
           <Register
             onRegister={handleRegister}
-            onSwitchToLogin={() => setView('login')}
+            onSwitchToLogin={() => setView("login")}
             loading={loading}
             error={error}
           />
         );
-      case 'forgot-password':
+      case "forgot-password":
         return (
           <ForgotPassword
             onSubmit={handleForgotPassword}
-            onBackToLogin={() => setView('login')}
+            onBackToLogin={() => setView("login")}
             loading={loading}
             error={error}
           />
@@ -91,9 +91,7 @@ const Auth = ({ onLogin, onRegister, onForgotPassword }: AuthProps) => {
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="absolute inset-0 bg-gradient-to-br from-primary-500/10 to-primary-600/10" />
-      <div className="relative">
-        {renderView()}
-      </div>
+      <div className="relative">{renderView()}</div>
     </div>
   );
 };
