@@ -8,10 +8,9 @@ import { Alert } from '../types';
 
 interface NavbarProps {
   alerts: Alert[];
-  onSignOut: () => void;
 }
 
-const Navbar = ({ alerts, onSignOut }: NavbarProps) => {
+const Navbar = ({ alerts }: NavbarProps) => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [isConsoleOpen, setIsConsoleOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
