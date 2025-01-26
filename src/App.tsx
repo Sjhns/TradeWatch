@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { AuthProvider, useAuth } from "./contexts/AuthContext";
 import { ThemeProvider } from "./contexts/ThemeContext";
-import ProtectedRoute from "./components/auth/ProtectedRoute";
+import { ProtectedRoute, PublicRoute } from "./components/auth/ProtectedRoute";
 import Auth from "./components/auth/Auth";
 import Dashboard from "./components/Dashboard";
 import Profile from "./components/profile/Profile";
@@ -127,22 +127,6 @@ function AppContent() {
   return (
     <Routes>
       <Route
-        path="/auth"
-        element={
-          user ? (
-            <Navigate to="/" replace />
-          ) : (
-            <Auth
-              onLogin={signIn}
-              onRegister={signUp}
-              onForgotPassword={(email) =>
-                Promise.resolve(console.log("Reset password for:", email))
-              }
-            />
-          )
-        }
-      />
-      <Route
         path="/"
         element={
           <ProtectedRoute>
@@ -165,6 +149,22 @@ function AppContent() {
           </ProtectedRoute>
         }
       />
+
+      <Route
+        path="/auth"
+        element={
+          <PublicRoute>
+            <Auth
+              onLogin={signIn}
+              onRegister={signUp}
+              onForgotPassword={(email) =>
+                Promise.resolve(console.log("Reset password for:", email))
+              }
+            />
+          </PublicRoute>
+        }
+      />
+
       <Route
         path="/profile"
         element={
