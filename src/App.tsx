@@ -25,7 +25,7 @@ import {
 } from "./utils/local-storage-utils";
 
 function AppContent() {
-  const { signIn, signUp, user, signOut } = useAuth();
+  const { signIn, signUp, user } = useAuth();
   const [assets, setAssets] = useState<Asset[]>([]);
   const [alerts, setAlerts] = useState<Alert[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -125,10 +125,6 @@ function AppContent() {
       }
     });
 
-  const handleSignOut = () => {
-    signOut();
-  };
-
   return (
     <Routes>
       <Route
@@ -153,7 +149,7 @@ function AppContent() {
           <ProtectedRoute>
             <div className="min-h-screen bg-gray-50">
               {/* Navbar */}
-              <Navbar alerts={alerts} onSignOut={handleSignOut} />
+              <Navbar alerts={alerts} />
               {/* Main Content */}
               <Dashboard
                 assets={filteredAssets}
@@ -174,7 +170,7 @@ function AppContent() {
         path="/profile"
         element={
           <ProtectedRoute>
-            <Navbar alerts={alerts} onSignOut={handleSignOut} />
+            <Navbar alerts={alerts} />
             <Profile />
           </ProtectedRoute>
         }
@@ -183,7 +179,7 @@ function AppContent() {
         path="/settings"
         element={
           <ProtectedRoute>
-            <Navbar alerts={alerts} onSignOut={handleSignOut} />
+            <Navbar alerts={alerts} />
             <Settings />
           </ProtectedRoute>
         }
