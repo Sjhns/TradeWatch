@@ -87,6 +87,7 @@ function App() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               className="md:hidden p-2 text-gray-300 hover:text-white"
             >
               {mobileMenuOpen ? (
