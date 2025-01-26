@@ -9,11 +9,9 @@ import {
   PresentationChartLineIcon,
   LightBulbIcon,
   ShieldCheckIcon,
-  FlagIcon,
   ArrowPathRoundedSquareIcon,
   ChartPieIcon,
   CalendarIcon,
-  ArrowTrendingDownIcon
 } from '@heroicons/react/24/outline';
 import { Asset, AssetFilter } from '../types';
 import AssetCard from './AssetCard';
